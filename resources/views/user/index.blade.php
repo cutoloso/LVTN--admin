@@ -20,10 +20,10 @@
                 <table class="table table-hover table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
-                        <th class="js-sort" data-sort="name"><span class="mr-2">name</span><i class="fa fa-caret-up"></i><i class="fa fa-caret-down"></i></th>
+                        <th class="js-sort" data-sort="name"><span class="mr-2">name</span><i class="fas fa-sort"></i></th>
                         <th>Mô tả</th>
-                        <th class="js-sort" data-sort="created_at"><span class="mr-2">Ngày tạo</span><i class="fa fa-caret-up"></i><i class="fa fa-caret-down"></i></th>
-                        <th class="js-sort" data-sort="updated_at"><span class="mr-2">Ngày cập nhật</span><i class="fa fa-caret-up"></i><i class="fa fa-caret-down"></i></th>
+                        <th class="js-sort" data-sort="created_at"><span class="mr-2">Ngày tạo</span><i class="fas fa-sort"></i></th>
+                        <th class="js-sort" data-sort="updated_at"><span class="mr-2">Ngày cập nhật</span><i class="fas fa-sort"></i></th>
                         <th class="text-center">
                         </th>
                     </tr>

@@ -11,7 +11,7 @@
             font-size: 13px;
         }
     </style>
-@endsection()
+@endsection
 @section('body.title','Danh sách sản phẩm')
 @section('body.content')
 
@@ -32,23 +32,23 @@
                 <table class="table table-hover table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
-                        <th class="js-sort" data-sort="name"><span class="mr-2">Tên</span><div class="icon-sort text-center"><i class="fa fa-caret-up"></i><i class="fa fa-caret-down"></i></div></th>
-                        <th class="js-sort" data-sort="code"><span class="mr-2">Mã</span><div class="icon-sort text-center"><i class="fa fa-caret-up"></i><i class="fa fa-caret-down"></i></div></th>
+                        <th class="js-sort" data-sort="name"><span class="mr-2">Tên</span><i class="fas fa-sort"></i></th>
+                        <th class="js-sort" data-sort="code"><span class="mr-2">Mã</span><i class="fas fa-sort"></i></th>
 {{--                        <th>Tên không dấu</th>--}}
                         <th>Ảnh đại diện</th>
-                        <th class="js-sort" data-sort="price"><span class="mr-2">Giá gốc</span><div class="icon-sort text-center"><i class="fa fa-caret-up"></i><i class="fa fa-caret-down"></i></div></th>
-                        <th class="js-sort" data-sort="price_sale"><span class="mr-2">Giá khuyến mãi</span><div class="icon-sort text-center"><i class="fa fa-caret-up"></i><i class="fa fa-caret-down"></i></div></th>
+                        <th class="js-sort" data-sort="price"><span class="mr-2">Giá gốc</span><div class="icon-sort text-center"><i class="fas fa-sort"></i></div></th>
+                        <th class="js-sort" data-sort="price_sale"><span class="mr-2">Giá khuyến mãi</span><div class="icon-sort text-center"><i class="fas fa-sort"></i></div></th>
 {{--                        <th>Mã sản phẩm cha</th>--}}
-                        <th class="js-sort" data-sort="quatity"><span class="mr-2">Số lượng</span><div class="icon-sort text-center"><i class="fa fa-caret-up"></i><i class="fa fa-caret-down"></i></div></th>
-                        <th class="js-sort text-center" data-sort="active"><span class="mr-2">Đang bán/Ngưng bán</span><div class="icon-sort text-center"><i class="fa fa-caret-up"></i><i class="fa fa-caret-down"></i></div></th>
-                        <th class="js-sort text-center" data-sort="best_sale"><span class="mr-2">Bán chạy</span><div class="icon-sort text-center"><i class="fa fa-caret-up"></i><i class="fa fa-caret-down"></i></div></th>
-                        <th class="js-sort text-center" data-sort="best_feature"><span class="mr-2">Nổi bật</span><div class="icon-sort text-center"><i class="fa fa-caret-up"></i><i class="fa fa-caret-down"></i></div></th>
-                        <th class="js-sort" data-sort="att_gr_name"><span class="mr-2">Nhóm thuộc tính chính</span><div class="icon-sort text-center"><i class="fa fa-caret-up"></i><i class="fa fa-caret-down"></i></div></th>
-                        <th class="js-sort" data-sort="bra_name"><span class="mr-2">Nhãn hiệu</span><div class="icon-sort text-center"><i class="fa fa-caret-up"></i><i class="fa fa-caret-down"></i></div></th>
-                        <th class="js-sort" data-sort="sup_name"><span class="mr-2">Nhà cung cấp</span><div class="icon-sort text-center"><i class="fa fa-caret-up"></i><i class="fa fa-caret-down"></i></div></th>
-                        <th class="js-sort" data-sort="created_at"><span class="mr-2">Ngày tạo</span><div class="icon-sort text-center"><i class="fa fa-caret-up"></i><i class="fa fa-caret-down"></i></div></th>
+                        <th class="js-sort" data-sort="quatity"><span class="mr-2">Số lượng</span><div class="icon-sort text-center"><i class="fas fa-sort"></i></div></th>
+                        <th class="js-sort text-center" data-sort="active"><span class="mr-2">Đang bán/Ngưng bán</span><div class="icon-sort text-center"><i class="fas fa-sort"></i></div></th>
+                        <th class="js-sort text-center" data-sort="best_sale"><span class="mr-2">Bán chạy</span><div class="icon-sort text-center"><i class="fas fa-sort"></i></div></th>
+                        <th class="js-sort text-center" data-sort="best_feature"><span class="mr-2">Nổi bật</span><div class="icon-sort text-center"><i class="fas fa-sort"></i></div></th>
+                        <th class="js-sort" data-sort="att_gr_name"><span class="mr-2">Nhóm thuộc tính chính</span><div class="icon-sort text-center"><i class="fas fa-sort"></i></div></th>
+                        <th class="js-sort" data-sort="bra_name"><span class="mr-2">Nhãn hiệu</span><div class="icon-sort text-center"><i class="fas fa-sort"></i></div></th>
+                        <th class="js-sort" data-sort="sup_name"><span class="mr-2">Nhà cung cấp</span><div class="icon-sort text-center"><i class="fas fa-sort"></i></div></th>
+                        <th class="js-sort" data-sort="created_at"><span class="mr-2">Ngày tạo</span><div class="icon-sort text-center"><i class="fas fa-sort"></i></div></th>
 {{--                        <th>Ngày cập nhật</th>--}}
-                        <th class="js-sort" data-sort="warranty"><span class="mr-2">Bảo hành</span><div class="icon-sort text-center"><i class="fa fa-caret-up"></i><i class="fa fa-caret-down"></i></div></th>
+                        <th class="js-sort" data-sort="warranty"><span class="mr-2">Bảo hành</span><div class="icon-sort text-center"><i class="fas fa-sort"></i></div></th>
                         <th colspan="2" class="text-center">
                             <a class="btn btn-success btn-sm" href="{{route('product.create')}}"><i class="fas fa-plus"></i></a>
                         </th>

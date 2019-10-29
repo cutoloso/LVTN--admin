@@ -16,7 +16,7 @@
         }
     </style>
 @endsection
-@section('body.title','Danh sách trạng thái đơn hàng')
+@section('body.title','Danh sách đơn hàng')
 @section('body.content')
 
     <div class="card shadow mb-4">
@@ -36,13 +36,13 @@
                 <table class="table table-hover table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
-                        <th class="js-sort" data-sort="id"><span class="mr-2">Mã đơn hàng</span><div class="icon-sort text-center"><i class="fa fa-caret-up"></i><i class="fa fa-caret-down"></i></div></th>
-                        <th class="js-sort" data-sort="created_at"><span class="mr-2">Ngày tạo</span><div class="icon-sort text-center"><i class="fa fa-caret-up"></i><i class="fa fa-caret-down"></i></div></th>
-                        <th class="js-sort" data-sort="updated_at"><span class="mr-2">Ngày cập nhật</span><div class="icon-sort text-center"><i class="fa fa-caret-up"></i><i class="fa fa-caret-down"></i></div></th>
-                        <th class="js-sort" data-sort="status_name"><span class="mr-2">Tình trạng đơn hàng</span><div class="icon-sort text-center"><i class="fa fa-caret-up"></i><i class="fa fa-caret-down"></i></div></th>
-                        <th class="js-sort" data-sort="payment_status_id"><span class="mr-2">Tình trạng thanh toán</span><div class="icon-sort text-center"><i class="fa fa-caret-up"></i><i class="fa fa-caret-down"></i></div></th>
-                        <th class="js-sort" data-sort="payment_method_name"><span class="mr-2">Phương thức thanh toán</span><div class="icon-sort text-center"><i class="fa fa-caret-up"></i><i class="fa fa-caret-down"></i></div></th>
-                        <th class="js-sort" data-sort="total_price"><span class="mr-2">Tổng</span><div class="icon-sort text-center"><i class="fa fa-caret-up"></i><i class="fa fa-caret-down"></i></div></th>
+                        <th class="js-sort" data-sort="id"><span class="mr-2">Mã đơn hàng</span><div class="icon-sort text-center"><i class="fas fa-sort"></i></div></th>
+                        <th class="js-sort" data-sort="created_at"><span class="mr-2">Ngày tạo</span><div class="icon-sort text-center"><i class="fas fa-sort"></i></div></th>
+                        <th class="js-sort" data-sort="updated_at"><span class="mr-2">Ngày cập nhật</span><div class="icon-sort text-center"><i class="fas fa-sort"></i></div></th>
+                        <th class="js-sort" data-sort="status_name"><span class="mr-2">Tình trạng đơn hàng</span><div class="icon-sort text-center"><i class="fas fa-sort"></i></div></th>
+                        <th class="js-sort" data-sort="payment_status_id"><span class="mr-2">Tình trạng thanh toán</span><div class="icon-sort text-center"><i class="fas fa-sort"></i></div></th>
+                        <th class="js-sort" data-sort="payment_method_name"><span class="mr-2">Phương thức thanh toán</span><div class="icon-sort text-center"><i class="fas fa-sort"></i></div></th>
+                        <th class="js-sort" data-sort="total_price"><span class="mr-2">Tổng</span><div class="icon-sort text-center"><i class="fas fa-sort"></i></div></th>
                         <th colspan="2" class="text-center">
                             &nbsp;
                         </th>

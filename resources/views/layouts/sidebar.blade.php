@@ -37,8 +37,8 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Quản lý bán hàng:</h6>
                 <a class="collapse-item" href="{{route('order.index')}}">Đơn hàng</a>
-                <a class="collapse-item" href="{{route('order.index')}}">Bảo hành</a>
-                <a class="collapse-item" href="{{route('sale.index')}}">Khuyến mãi</a>
+{{--                <a class="collapse-item" href="{{route('order.index')}}">Bảo hành</a>--}}
+{{--                <a class="collapse-item" href="{{route('sale.index')}}">Khuyến mãi</a>--}}
                 {{--              <a class="collapse-item" href="">Phí vận chuyển</a>--}}
                 <a class="collapse-item" href="{{route('status.index')}}">Tình trạng đơn hàng</a>
                 <a class="collapse-item" href="{{route('payment-method.index')}}">Phương thức thanh toán</a>
@@ -74,7 +74,7 @@
 {{--                <a class="collapse-item" href="{{route('category.index')}}">Danh mục</a>--}}
                 <a class="collapse-item" href="{{route('attribute-group.index')}}">Nhóm thuộc tính</a>
                 <a class="collapse-item" href="{{route('attributes.index')}}">Thông số kỹ thuật</a>
-                <a class="collapse-item" href="{{route('product.import')}}">Import excel</a>
+                <a class="collapse-item" href="{{route('product.import')}}">Nhập/ Xuất sản phẩm</a>
 
             </div>
         </div>

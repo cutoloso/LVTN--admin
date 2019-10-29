@@ -14,7 +14,7 @@
             margin-bottom: 0
         }
 
-        #order-received .order-info .table tbody tr:first-child td{
+        #order-received .order-info .table tbody tr:first-child td {
             border-top: none
         }
 
@@ -39,11 +39,16 @@
         #order-received .thanks {
             font-family: OpenSans-Bold
         }
-        .card-header{
+
+        .card-header {
             color: #fff;
             background-color: #4c75ed;
         }
+
+
     </style>
+
+    {{--    <link href="{{asset('css/jquery.fancybox.min.css')}}" rel="stylesheet">--}}
 @endsection
 @section('body.title','Chi tiết đơn hàng')
 @section('body.content')
@@ -64,22 +69,34 @@
                                         @endphp
                                         <tr>
                                             <td>{{$product->name}} <span>x {{$product->quantity}}</span></td>
-                                            <td><?php echo priceToString($price)?> ₫</td>
+                                            <td><?php echo priceToString($price)?></td>
                                         </tr>
                                         <tr>
                                             <td>Mã máy:</td>
                                             <td>{{$product->code}}</td>
                                         </tr>
+                                        <tr>
+                                            <td>Ngày đặt hàng:</td>
+                                            <td>{{$order->created_at}}</td>
+                                        </tr>
                                     @endforeach
                                     <tr>
                                         <th>Phương thức thanh toán:</th>
-                                        <td>{{$order->pay_name}}</td>
+                                        <td>{{$order->pay_mth_name}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Trạng thái thanh toán:</th>
+                                        <td>{{$order->pay_sta_name}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Trạng thái đơn hàng:</th>
+                                        <td>{{$order->sta_name}}</td>
                                     </tr>
                                     </tbody>
                                     <tfoot>
                                     <tr>
                                         <th>Tổng:</th>
-                                        <td><?php echo priceToString($order->total_price)?> ₫</td>
+                                        <td><?php echo priceToString($order->total_price)?></td>
                                     </tr>
                                     </tfoot>
                                 </table>
@@ -109,63 +126,156 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-12 text-center mt-3 print-order">
+                    In hóa đơn
+                    <a class="btn btn-success" data-toggle="modal" data-target="#printer-modal" style="cursor: pointer;">
+                        <i class="fas fa-print" style="color: #fff"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
     <!-- The Modal -->
-
-    <!-- Modal Edit-->
-    <div class="modal fade" id="modalEdit">
-        <div class="modal-dialog">
+<?php //dd($order); ?>
+    <!-- Modal Print-->
+    <div class="modal fade" id="printer-modal">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
-
-                <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Cập nhật đơn hàng</h4>
+                    <h4 class="modal-title">In hóa đơn</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
 
-                <form action="" name="frmEdit" method="post" enctype="multipart/form-data">
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        @csrf
-                        @method('PUT')
-                        <div class="form-group">
-                            <label for="id">Mã đơn hàng:</label>
-                            <input type="text" class="form-control" id="id" name="id" placeholder="" readonly>
-                        </div>
-                        <div class="form-group">
-                            <label for="status_name">Trạng thái đơn hàng:</label>
-                            <select name="sta_id" id="status_name" class="custom-select mb-3 js-status-name"></select>
-                        </div>
-                        <div class="form-group">
-                            <label for="payment-status">Tình trạng thanh toán:</label>
-                            <select name="pay_sta_id" id="payment_status"
-                                    class="custom-select mb-3 js-payment-status"></select>
-                        </div>
-                        <div class="form-group">
-                            <label for="payment-method">Phương thức thanh toán:</label>
-                            <input type="text" class="form-control" id="payment-method" name="payment-method"
-                                   placeholder="" readonly>
-                        </div>
-                        <div class="form-group">
-                            <label for="total-price">Tổng:</label>
-                            <input type="text" class="form-control" id="total-price" name="total_price" placeholder=""
-                                   readonly>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div id="printer" class="col-12">
+                        <div>
+                            <table style="width: 100%;  border: 1px solid #000; border-bottom: 1px dashed #000;">
+                                <tr>
+                                    <td style="width: 25%; padding: 5px;">
+                                        <div class="logo-holder">
+                                            <img style="max-width: 100%;" src="{{asset('images/logo.png')}}"/>
+                                        </div>
+                                    </td>
+                                    <td style="width: 25%; padding: 5px;">
+                                        <div class="logo-holder">
+                                            <img style="max-width: 100%"
+                                                 src="">
+                                        </div>
+                                    </td>
+                                    <td style="padding: 5px;">
+                                        Mã đơn hàng: <strong>{{$order->id}}</strong>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table style="width: 100%; border-left: 1px solid #000;border-right: 1px solid #000;">
+                                <tr>
+                                    <td style="width: 50%;padding: 5px; vertical-align: baseline;">
+                                        <strong>Từ </strong>AZ Mobile<br>
+                                         <br>
+
+                                    </td>
+                                    <td style="width: 50%;padding: 5px; vertical-align: baseline;">
+                                        <strong>Đến </strong>{{$order->name}}<br>
+                                        {{$order->address}}<br>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 50%;padding: 5px; vertical-align: baseline;">
+                                        <strong>SĐT</strong>: 0909090909
+                                    </td>
+                                    <td style="width: 50%;padding: 5px;">
+                                        <strong>SĐT</strong>: {{$order->phone}}
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table style="width: 100%; border-collapse: collapse; font-size: small; " border="1">
+                                <tr>
+                                    <td style="width: 50%;padding: 5px;" colspan="4">
+                                        <strong>Nội dung vận chuyển</strong>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 5px; text-align:center;">
+                                        STT
+                                    </td>
+                                    <td style="padding: 5px;">
+                                        Tên
+                                    </td>
+                                    <td style="padding: 5px; text-align:center;">
+                                        Số lượng
+                                    </td>
+                                    <td style="padding: 5px; text-align:center;">
+                                        Giá
+                                    </td>
+                                </tr>
+                                @php $stt = 0; @endphp
+                                @foreach($orderProduct as $product)
+                                    @php $stt++; @endphp
+                                    <tr>
+                                        <td style="padding: 5px; text-align:center;">
+                                            {{$stt}}
+                                        </td>
+                                        <td style="padding: 5px;">
+                                            {{$product->name}}
+                                        </td>
+                                        <td style="padding: 5px; text-align:center;">
+                                            {{$product->quantity}}
+                                        </td>
+                                        <td style="padding: 5px; text-align:center;">
+                                            {{$product->price_sale}}
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                <tr>
+                                    <td style="width: 50%;padding: 5px;" colspan="2">
+                                        <strong>Tổng sản phẩm</strong>
+                                    </td>
+                                    <td style="padding: 5px; text-align:center;">
+                                        <strong>{{$stt}}</strong>
+                                    </td>
+                                    <td style="padding: 5px; text-align: center;">
+                                        <strong>{{$order->total_price}}</strong>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 50%;padding: 5px; vertical-align: baseline;" colspan="2">
+                                        <strong>Tiền thu người nhận</strong> <br>
+                                        <div style="font-size: x-large;font-weight: bold;">{{$order->total_price}}</div>
+                                    </td>
+                                    <td style="width: 50%;padding: 5px; text-align:center;" colspan="2">
+                                        <strong>Chữ ký người nhận </strong><br>
+                                        <small>(Xác nhận hàng nguyên vẹn)</small>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
-
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Lưu</button>
-                    </div>
-                </form>
-
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary is-small" onclick="onPrint()">
+                        IN PHIẾU
+                    </button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+                </div>
             </div>
+
         </div>
     </div>
 @endsection
 @section('body.js')
+
+    {{--    <script src="{{asset('js/jquery.fancybox.min.js')}}"></script>--}}
+
     <script>
         $(document).ready(function () {
             $("#iputSearch").on("keyup", function () {
@@ -269,7 +379,41 @@
                     }
                 });
             });
-        });
 
+        }); //end document ready
+
+        function onPrint() {
+            const feature = 'width=800,height=700,top=100,left=200,toolbars=no,scrollbars=yes,status=no,resizable=no';
+            const WindowObject = window.open('', 'PrintWindow', feature);
+            const template = document.getElementById('printer').innerHTML;
+            WindowObject.document.writeln(template);
+            setTimeout(function () { // wait until all resources loaded
+                WindowObject.document.close(); // necessary for IE >= 10
+                WindowObject.scrollTo(0, 0);
+                WindowObject.focus(); // necessary for IE >= 10
+                WindowObject.print(); // change window to winPrint
+                WindowObject.close(); // change window to winPrint
+            }, 250);
+        };
+
+        // function PrintElem(elem)
+        // {
+        //     var mywindow = window.open('', 'PRINT', 'height=400,width=600');
+        //
+        //     mywindow.document.write('<html><head><title>' + document.title  + '</title>');
+        //     mywindow.document.write('</head><body >');
+        //     mywindow.document.write('<h1>' + document.title  + '</h1>');
+        //     mywindow.document.write(document.getElementById(elem).innerHTML);
+        //     mywindow.document.write('</body></html>');
+        //
+        //     mywindow.document.close(); // necessary for IE >= 10
+        //     mywindow.focus(); // necessary for IE >= 10*/
+        //
+        //     mywindow.print();
+        //     mywindow.close();
+        //
+        //     return true;
+        // }
     </script>
-@endsection()
+
+@endsection

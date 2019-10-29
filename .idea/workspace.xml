@@ -31,6 +31,9 @@
   <component name="FavoritesManager">
     <favorites_list name="azmobile" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
@@ -128,21 +131,23 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1Ph0VGZTdcPUqhZ3WBZ1XfRqFne" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../website-azmobile" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\admin-azmobile\resources\views\statistics" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\admin-azmobile\resources\views\product" />
       <recent name="C:\xampp\htdocs\admin-azmobile\resources\views\user" />
       <recent name="C:\xampp\htdocs\admin-azmobile\resources\views\order" />
       <recent name="C:\xampp\htdocs\azmobile\resources\views\product" />
       <recent name="C:\xampp\htdocs\azmobile\database\seeds" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\admin-azmobile\resources\views\statistics" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -261,11 +266,57 @@
       <workItem from="1570498165891" duration="7595000" />
       <workItem from="1570507642828" duration="26507000" />
       <workItem from="1570547586243" duration="64000" />
-      <workItem from="1570547667417" duration="237000" />
+      <workItem from="1570547667417" duration="2751000" />
+      <workItem from="1570583054181" duration="259000" />
+      <workItem from="1570637763204" duration="611000" />
+      <workItem from="1570671013770" duration="535000" />
+      <workItem from="1570674312260" duration="5407000" />
+      <workItem from="1570760480137" duration="1975000" />
+      <workItem from="1570776354070" duration="86000" />
+      <workItem from="1570776477396" duration="4040000" />
+      <workItem from="1570801859474" duration="1707000" />
+      <workItem from="1570845418598" duration="1913000" />
+      <workItem from="1570871024977" duration="631000" />
+      <workItem from="1571280885206" duration="42000" />
+      <workItem from="1571318718932" duration="2631000" />
+      <workItem from="1571422287589" duration="835000" />
+      <workItem from="1571448418495" duration="12000" />
+      <workItem from="1571543656773" duration="4952000" />
+      <workItem from="1571580030067" duration="8251000" />
+      <workItem from="1571620750333" duration="15000" />
+      <workItem from="1571664023278" duration="1200000" />
+      <workItem from="1571707473502" duration="45000" />
+      <workItem from="1571766008263" duration="1809000" />
+      <workItem from="1571809372545" duration="18914000" />
+      <workItem from="1571964250768" duration="236000" />
+      <workItem from="1572018260808" duration="1856000" />
+      <workItem from="1572056339098" duration="1798000" />
+      <workItem from="1572082510945" duration="13000" />
+      <workItem from="1572088412760" duration="4176000" />
+      <workItem from="1572106003913" duration="653000" />
+      <workItem from="1572189278241" duration="3900000" />
+      <workItem from="1572226699437" duration="1298000" />
+      <workItem from="1572254746626" duration="1139000" />
+      <workItem from="1572260099571" duration="2633000" />
+      <workItem from="1572310218250" duration="12000" />
+      <workItem from="1572357945486" duration="3423000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

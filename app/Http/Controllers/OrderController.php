@@ -56,7 +56,7 @@ class OrderController extends Controller
         }
         $order->save();
         Session::flash('success','Cập nhật thành công');
-        return redirect()->route('order.index');
+        return redirect('order/show/'.$id);
     }
 
     public function showOrderDetail($id){
@@ -67,11 +67,12 @@ class OrderController extends Controller
             ->get();
 
         $order = DB::table('orders')
-            ->join('payment_method','orders.pay_mth_id','=','payment_method.id')
             ->where('orders.id', $id)
-            ->select('orders.*', 'payment_method.name as pay_name')
+            ->join('payment_method','orders.pay_mth_id','=','payment_method.id')
+            ->join('payment_status','orders.pay_sta_id','=','payment_status.id')
+            ->join('status','orders.sta_id','=','status.id')
+            ->select('orders.*', 'payment_method.name as pay_mth_name', 'payment_status.name as pay_sta_name', 'status.name as sta_name')
             ->first();
-
         return view('order.show',[
             'orderProduct'  => $orderProduct,
             'order'         => $order

@@ -54,7 +54,7 @@
                     <input type="text" class="form-control" id="quatity" name="quatity" placeholder="" value="{{$product->quatity}}">
                 </div>
                 <div class="form-group">
-                    <label for="quatity">Số tháng bảo hành:</label>
+                    <label for="quatity">Số tháng bảo hành (mặc định là 12):</label>
                     <input type="number" class="form-control" id="warranty" name="warranty" placeholder="" value="{{$product->warranty}}">
                 </div>
 
