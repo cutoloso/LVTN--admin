@@ -40,8 +40,8 @@
                         <th class="js-sort" data-sort="price_sale"><span class="mr-2">Giá khuyến mãi</span><div class="icon-sort text-center"><i class="fas fa-sort"></i></div></th>
 {{--                        <th>Mã sản phẩm cha</th>--}}
                         <th class="js-sort" data-sort="quatity"><span class="mr-2">Số lượng</span><div class="icon-sort text-center"><i class="fas fa-sort"></i></div></th>
-                        <th class="js-sort text-center" data-sort="active"><span class="mr-2">Đang bán/Ngưng bán</span><div class="icon-sort text-center"><i class="fas fa-sort"></i></div></th>
-                        <th class="js-sort text-center" data-sort="best_sale"><span class="mr-2">Bán chạy</span><div class="icon-sort text-center"><i class="fas fa-sort"></i></div></th>
+                        <th class="js-sort text-center" data-sort="active"><span class="mr-2">Đang bán/ ngưng bán</span><div class="icon-sort text-center"><i class="fas fa-sort"></i></div></th>
+{{--                        <th class="js-sort text-center" data-sort="best_sale"><span class="mr-2">Bán chạy</span><div class="icon-sort text-center"><i class="fas fa-sort"></i></div></th>--}}
                         <th class="js-sort text-center" data-sort="best_feature"><span class="mr-2">Nổi bật</span><div class="icon-sort text-center"><i class="fas fa-sort"></i></div></th>
                         <th class="js-sort" data-sort="att_gr_name"><span class="mr-2">Nhóm thuộc tính chính</span><div class="icon-sort text-center"><i class="fas fa-sort"></i></div></th>
                         <th class="js-sort" data-sort="bra_name"><span class="mr-2">Nhãn hiệu</span><div class="icon-sort text-center"><i class="fas fa-sort"></i></div></th>
@@ -58,7 +58,7 @@
                     @foreach ($products as $product)
                         <tr>
                             <td>{{ $product->name }}</td>
-                            <td>{{ $product->code }}</td>
+                            <td>{{ $product->id }}</td>
 {{--                            <td>{{ $product->alias }}</td>--}}
                             <td class="text-center">
                                 <a class="btn btn-secondary btn-sm" href="/product/{{$product->id}}/gallery"><i class="fas fa-eye"></i></a>
@@ -71,11 +71,13 @@
                                 @if($product->active==1) <i class="fas fa-check text-success"></i>
                                 @else <i class="fas fa-times text-danger"></i>
                                 @endif
-                            </td><td class="text-center">
-                                @if($product->best_sale==1) <i class="fas fa-check text-success"></i>
-                                @else <i class="fas fa-times text-danger"></i>
-                                @endif
-                            </td><td class="text-center">
+                            </td>
+{{--                            <td class="text-center">--}}
+{{--                                @if($product->best_sale==1) <i class="fas fa-check text-success"></i>--}}
+{{--                                @else <i class="fas fa-times text-danger"></i>--}}
+{{--                                @endif--}}
+{{--                            </td>--}}
+                            <td class="text-center">
                                 @if($product->best_feature==1) <i class="fas fa-check text-success"></i>
                                 @else <i class="fas fa-times text-danger"></i>
                                 @endif

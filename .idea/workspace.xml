@@ -31,6 +31,13 @@
   <component name="FavoritesManager">
     <favorites_list name="azmobile" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -135,16 +142,16 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/inventory" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\admin-azmobile\resources\views\inventory" />
+      <recent name="C:\xampp\htdocs\admin-azmobile\resources\views\review" />
       <recent name="C:\xampp\htdocs\admin-azmobile\resources\views\product" />
       <recent name="C:\xampp\htdocs\admin-azmobile\resources\views\user" />
       <recent name="C:\xampp\htdocs\admin-azmobile\resources\views\order" />
-      <recent name="C:\xampp\htdocs\azmobile\resources\views\product" />
-      <recent name="C:\xampp\htdocs\azmobile\database\seeds" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\admin-azmobile\resources\views\statistics" />
@@ -300,6 +307,28 @@
       <workItem from="1572260099571" duration="2633000" />
       <workItem from="1572310218250" duration="12000" />
       <workItem from="1572357945486" duration="3423000" />
+      <workItem from="1572442618155" duration="602000" />
+      <workItem from="1572484284285" duration="608000" />
+      <workItem from="1572496167776" duration="773000" />
+      <workItem from="1573967276765" duration="529000" />
+      <workItem from="1574040893325" duration="99000" />
+      <workItem from="1574500509687" duration="4259000" />
+      <workItem from="1574514501211" duration="17588000" />
+      <workItem from="1574659535380" duration="11000" />
+      <workItem from="1574981844344" duration="426000" />
+      <workItem from="1574993292959" duration="3227000" />
+      <workItem from="1575082418581" duration="710000" />
+      <workItem from="1575085424638" duration="10825000" />
+      <workItem from="1575161787818" duration="9939000" />
+      <workItem from="1575254330381" duration="234000" />
+      <workItem from="1575430497563" duration="26000" />
+      <workItem from="1575432308091" duration="5643000" />
+      <workItem from="1575994226191" duration="3217000" />
+      <workItem from="1576031651075" duration="3438000" />
+      <workItem from="1576113657928" duration="4201000" />
+      <workItem from="1576148204107" duration="3128000" />
+      <workItem from="1576157227742" duration="1111000" />
+      <workItem from="1576161920913" duration="16095000" />
     </task>
     <servers />
   </component>

@@ -136,7 +136,6 @@
         </div>
     </section>
     <!-- The Modal -->
-<?php //dd($order); ?>
     <!-- Modal Print-->
     <div class="modal fade" id="printer-modal">
         <div class="modal-dialog modal-xl">

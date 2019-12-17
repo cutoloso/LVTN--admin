@@ -24,14 +24,14 @@
                     <label for="name">Tên sản phẩm:</label>
                     <input type="text" class="form-control" id="name" name="name" placeholder="" autofocus value="{{$product->name}}">
                 </div>
-                <div class="form-group">
-                    <label for="code">Mã sản phẩm:</label>
-                    <input type="text" class="form-control" id="code" name="code" placeholder="" value="{{$product->code}}">
-                </div>
-                <div class="form-group">
-                    <label for="alias">Tên không dấu của sản phẩm:</label>
-                    <input type="text" class="form-control" id="alias" name="alias" placeholder="" value="{{$product->alias}}">
-                </div>
+{{--                <div class="form-group">--}}
+{{--                    <label for="code">Mã sản phẩm:</label>--}}
+{{--                    <input type="text" class="form-control" id="code" name="code" placeholder="" value="{{$product->code}}">--}}
+{{--                </div>--}}
+{{--                <div class="form-group">--}}
+{{--                    <label for="alias">Tên không dấu của sản phẩm:</label>--}}
+{{--                    <input type="text" class="form-control" id="alias" name="alias" placeholder="" value="{{$product->alias}}">--}}
+{{--                </div>--}}
                 <p class="mb-1">Chọn hình đại diện</p>
                 <div class="custom-file">
                     <input type="file" class="custom-file-input" id="img" name="img">
@@ -45,13 +45,13 @@
                     <label for="price_sale">Giá sale của sản phẩm:</label>
                     <input type="text" class="form-control" id="price_sale" name="price_sale" placeholder="" value="{{$product->price_sale}}">
                 </div>
-                <div class="form-group">
-                    <label for="parent">Mã sản phẩm cha:</label>
-                    <input type="text" class="form-control" id="parent" name="parent" placeholder="" value="{{$product->parent}}">
-                </div>
+{{--                <div class="form-group">--}}
+{{--                    <label for="parent">Mã sản phẩm cha:</label>--}}
+{{--                    <input type="text" class="form-control" id="parent" name="parent" placeholder="" value="{{$product->parent}}">--}}
+{{--                </div>--}}
                 <div class="form-group">
                     <label for="quatity">Số lượng sản phẩm:</label>
-                    <input type="text" class="form-control" id="quatity" name="quatity" placeholder="" value="{{$product->quatity}}">
+                    <input type="text" class="form-control" id="quatity" name="quatity" placeholder="" readonly value="{{$product->quatity}}">
                 </div>
                 <div class="form-group">
                     <label for="quatity">Số tháng bảo hành (mặc định là 12):</label>
@@ -59,15 +59,15 @@
                 </div>
 
                 <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="active" name="active">
+                    <input type="checkbox" class="custom-control-input" id="switch" name="active">
                     <label class="custom-control-label" for="switch">Trạng thái sản phẩm (Đang bán /Ngưng bán):</label>
                 </div>
+{{--                <div class="custom-control custom-switch">--}}
+{{--                    <input type="checkbox" class="custom-control-input" id="switch2" name="best_sale">--}}
+{{--                    <label class="custom-control-label" for="switch2">Sản phẩm bán chạy</label>--}}
+{{--                </div>--}}
                 <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="best_sale" name="best_sale">
-                    <label class="custom-control-label" for="switch2">Sản phẩm bán chạy</label>
-                </div>
-                <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="best_feature" name="best_feature">
+                    <input type="checkbox" class="custom-control-input" id="switch3" name="best_feature">
                     <label class="custom-control-label" for="switch3">Sản phẩm nổi bật</label>
                 </div>
                 <br>
@@ -176,21 +176,21 @@
 
             // checkbox
             @if($product->active == 1)
-                $('#active').prop('checked',true);
+                $('#switch').prop('checked',true);
             @else
-                $('#active').prop('checked',false);
+                $('#switch').prop('checked',false);
             @endif
 
             @if($product->best_sale == 1)
-                $('#best_sale').prop('checked',true);
+                $('#switch2').prop('checked',true);
             @else
-                $('#best_sale').prop('checked',false);
+                $('#switch2').prop('checked',false);
             @endif
 
             @if($product->best_feature == 1)
-                $('#best_feature').prop('checked',true);
+                $('#switch3').prop('checked',true);
             @else
-                $('#best_feature').prop('checked',false);
+                $('#switch3').prop('checked',false);
             @endif
 
         });

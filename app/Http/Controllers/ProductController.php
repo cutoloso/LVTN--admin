@@ -24,6 +24,14 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
+//        $best_order = DB::table('order_product')
+//            ->select(DB::raw('pro_id, count(order_product.id) as orders_count'))
+//            ->groupBy('pro_id')
+//            ->orderBy('orders_count', 'desc')
+//            ->take(10)
+//            ->get();
+//        return $best_order;
+
         $products = DB::table('products')
             ->leftJoin('brands','products.bra_id','=','brands.id')
             ->leftJoin('suppliers', 'products.sup_id', '=', 'suppliers.id')
@@ -36,7 +44,8 @@ class ProductController extends Controller
         else{
             $products->orderBy('products.created_at','desc');
         }
-        return view('product.index',['products'=>$products->paginate(10)]);
+
+        return view('product.index',['products'=>$products->paginate(30)]);
     }
 
     /**

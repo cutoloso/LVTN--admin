@@ -1,6 +1,13 @@
 @extends('layouts.master')
 @section('header.title','QL tài khoản')
-@section('body.title','Quản lý tài khoản')
+@section('header.css')
+    <style>
+        .js-sort{
+            text-align: left;
+        }
+    </style>
+@endsection()
+@section('body.title','Quản lý tồn kho')
 @section('body.content')
 
     <div class="card shadow mb-4">
@@ -20,82 +27,32 @@
                 <table class="table table-hover table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
-                        <th class="js-sort" data-sort="name"><span class="mr-2">name</span><i class="fas fa-sort"></i></th>
-                        <th>Email</th>
-                        <th>Mô tả</th>
-                        <th class="js-sort" data-sort="created_at"><span class="mr-2">Ngày tạo</span><i class="fas fa-sort"></i></th>
-                        <th class="js-sort" data-sort="updated_at"><span class="mr-2">Ngày cập nhật</span><i class="fas fa-sort"></i></th>
-                        <th class="text-center">Active</th>
+                        <th class="js-sort" data-sort="name"><span class="mr-2">Tên sản phẩm</span><i class="fas fa-sort"></i></th>
+                        <th class="js-sort" data-sort="quatity"><span class="mr-2">Số lượng</span><i class="fas fa-sort"></i></th>
                         <th class="text-center">
+                            Cập nhật số lượng
                         </th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach ($users as $user)
+                    @foreach ($products as $product)
                         <tr>
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->email }}</td>
-                            <td>{{ $user->description }}</td>
-                            <td>{{ $user->created_at }}</td>
-                            <td>{{ $user->updated_at }}</td>
-                            <td class="text-center">
-                                @if($user->active==1) <i class="fas fa-check text-success"></i>
-                                @else <i class="fas fa-times text-danger"></i>
-                                @endif
+                            <td>{{ $product->name }}</td>
+                            <td>
+                                {{ $product->quatity }}
+                                @if($product->quatity < 5)
+                                    <i class="text-danger fas fa-exclamation-triangle"></i>
+                                    @endif
                             </td>
                             <td class="text-center">
-                                <button class="btn btn-secondary js-btn-edit" data-id="{{$user->id}}" data-token="{{ csrf_token() }}"><i class="fas fa-edit"></i></button>
+                                <a class="btn btn-secondary js-btn-edit" href="{{route('inventory.show',$product->id)}}"><i class="fas fa-edit"></i></a>
                             </td>
                         </tr>
                     @endforeach
                     </tbody>
                 </table>
-            {{ $users->links() }}
+            {{ $products->links() }}
             <!-- End of Content page -->
-
-            </div>
-        </div>
-    </div>
-    <!-- The Modal -->
-    <!-- Modal Edit-->
-    <div class="modal fade" id="modalEdit">
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h4 class="modal-title">Chỉnh sửa người dùng</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-
-                <form action="" name="frmEdit" method="post" enctype="multipart/form-data">
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        @csrf
-                        @method('PUT')
-                        <div class="form-group">
-                            <label for="name">Tên người dùng:</label>
-                            <input type="text" class="form-control" id="name" name="name" readonly placeholder="" >
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email:</label>
-                            <input type="text" class="form-control" id="email" name="email" readonly placeholder="" >
-                        </div>
-                        <div class="form-group">
-                            <label for="gr_id">Quyền:</label>
-                            <select name="gr_id" id="gr_id" class="custom-select mb-3 js-gr_id-id"></select>
-                        </div>
-                        <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="switch" name="active">
-                            <label class="custom-control-label" for="switch">Khóa / Mở khóa tài khoản:</label>
-                        </div>
-                    </div>
-
-                    <!-- Modal footer -->
-                    <div class="modal-footer" >
-                        <button type="submit" class="btn btn-primary">Lưu</button>
-                    </div>
-                </form>
 
             </div>
         </div>

@@ -29,6 +29,12 @@ class UserController extends Controller
     public function update(Request $request, $id){
         $user = User::find($id);
         $user->gr_id = $request->gr_id;
+        if(isset($request->active)){
+            $user->active = 1;
+        }
+        else{
+            $user->active = 0;
+        }
         $user->save();
         Session::flash('success','Cập nhật thành công');
         return redirect()->route('user.index');

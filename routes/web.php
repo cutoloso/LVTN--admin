@@ -37,6 +37,8 @@ Auth::routes();
         'order'             => 'OrderController',
         'menu'              => 'MenuController',
         'user'              => 'UserController',
+        'reviews'           => 'ReviewController',
+        'inventory'           => 'InventoryController'
     ]);
     Route::resource('product' , 'ProductController');
     Route::get('product-import', 'ProductController@importView')->name('product.import');
@@ -74,10 +76,12 @@ Auth::routes();
     Route::get('group/api/getAll','GroupController@getGroup')->name('group/api/getAll');
 
     Route::get('statistics', 'StatisticsController@index')->name('getStatistics');
-    Route::get('sales-by-mounth', 'StatisticsController@getSalesByMounth')->name('getSalesByMounth');
+    Route::get('sales-by-year', 'StatisticsController@getSalesByYear')->name('getSalesByYear');
     Route::get('get-year-order', 'StatisticsController@getOrderYear')->name('get-year-order');
     Route::get('get-order-by-brand', 'StatisticsController@getSalesByBrand')->name('getOrderByBrand');
+    Route::get('get-product-by-brand', 'StatisticsController@getProductByBrand')->name('getProductByBrand');
 
+    Route::get('statics-review','ReviewController@getReviewStatics');
 });
 
 Auth::routes();

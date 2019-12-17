@@ -54,6 +54,24 @@ class OrderController extends Controller
                         ]);
             }
         }
+        if($request->sta_id == 2){
+            $orderProduct = DB::table('order_product')->where('ord_id',$id)->get();
+            foreach ($orderProduct as $item) {
+                $pro = Product::find($item->pro_id);
+                $quatity = $pro->quatity;
+                $pro->quatity = $quatity - 1;
+                $pro->save();
+            }
+        }
+        if($request->sta_id == 5){
+            $orderProduct = DB::table('order_product')->where('ord_id',$id)->get();
+            foreach ($orderProduct as $item) {
+                $pro = Product::find($item->pro_id);
+                $quatity = $pro->quatity;
+                $pro->quatity = $quatity + 1;
+                $pro->save();
+            }
+        }
         $order->save();
         Session::flash('success','Cập nhật thành công');
         return redirect('order/show/'.$id);

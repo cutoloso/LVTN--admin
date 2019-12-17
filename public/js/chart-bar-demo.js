@@ -1,22 +1,14 @@
-// Area Chart Example
-function paintAreaChart(selector,data){
-    let myLineChart = new Chart(selector, {
-        type: 'line',
+// Bar Chart Example
+function paintBarChart(selector,data, labels) {
+    let myBarChart = new Chart(selector, {
+        type: 'bar',
         data: {
-            labels: ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12"],
+            labels: labels,
             datasets: [{
-                label: "Thu nhập",
-                lineTension: 0.3,
-                backgroundColor: "rgba(78, 115, 223, 0.05)",
-                borderColor: "rgba(78, 115, 223, 1)",
-                pointRadius: 3,
-                pointBackgroundColor: "rgba(78, 115, 223, 1)",
-                pointBorderColor: "rgba(78, 115, 223, 1)",
-                pointHoverRadius: 3,
-                pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
-                pointHoverBorderColor: "rgba(78, 115, 223, 1)",
-                pointHitRadius: 10,
-                pointBorderWidth: 2,
+                label: "Revenue",
+                backgroundColor: "#4e73df",
+                hoverBackgroundColor: "#2e59d9",
+                borderColor: "#4e73df",
                 data: data,
             }],
         },
@@ -33,18 +25,20 @@ function paintAreaChart(selector,data){
             scales: {
                 xAxes: [{
                     time: {
-                        unit: 'date'
+                        unit: 'month'
                     },
                     gridLines: {
                         display: false,
                         drawBorder: false
                     },
                     ticks: {
-                        maxTicksLimit: 7
-                    }
+                        maxTicksLimit: 31
+                    },
+                    maxBarThickness: 25,
                 }],
                 yAxes: [{
                     ticks: {
+                        min: 0,
                         maxTicksLimit: 5,
                         padding: 10,
                         // Include a dollar sign in the ticks
@@ -65,18 +59,16 @@ function paintAreaChart(selector,data){
                 display: false
             },
             tooltips: {
-                backgroundColor: "rgb(255,255,255)",
-                bodyFontColor: "#858796",
                 titleMarginBottom: 10,
                 titleFontColor: '#6e707e',
                 titleFontSize: 14,
+                backgroundColor: "rgb(255,255,255)",
+                bodyFontColor: "#858796",
                 borderColor: '#dddfeb',
                 borderWidth: 1,
                 xPadding: 15,
                 yPadding: 15,
                 displayColors: false,
-                intersect: false,
-                mode: 'index',
                 caretPadding: 10,
                 callbacks: {
                     label: function(tooltipItem, chart) {
@@ -84,8 +76,8 @@ function paintAreaChart(selector,data){
                         return datasetLabel + ': ' + number_format(tooltipItem.yLabel) + 'đ';
                     }
                 }
-            }
+            },
         }
     });
-}
 
+}

@@ -1,6 +1,6 @@
 @extends('layouts.master')
-@section('header.title','QL tài khoản')
-@section('body.title','Quản lý tài khoản')
+@section('header.title','QL tồn kho')
+@section('body.title','Quản lý tồn kho')
 @section('body.content')
 
     <div class="card shadow mb-4">
@@ -8,87 +8,52 @@
             <h6 class="m-0 font-weight-bold text-primary">
                 <!-- table name -->
             @yield('body.table-name')
-            <!-- End of table name -->
+            Sản phẩm {{$product->name}}
             </h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
 
                 <!-- Content page -->
-                <input class="form-control" id="iputSearch" type="text" placeholder="Search..">
-                <br>
                 <table class="table table-hover table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
-                        <th class="js-sort" data-sort="name"><span class="mr-2">name</span><i class="fas fa-sort"></i></th>
-                        <th>Email</th>
-                        <th>Mô tả</th>
-                        <th class="js-sort" data-sort="created_at"><span class="mr-2">Ngày tạo</span><i class="fas fa-sort"></i></th>
+                        <th class="js-sort" data-sort="name"><span class="mr-2">Số lượng</span><i class="fas fa-sort"></i></th>
+                        <th>Ngày tạo</th>
                         <th class="js-sort" data-sort="updated_at"><span class="mr-2">Ngày cập nhật</span><i class="fas fa-sort"></i></th>
-                        <th class="text-center">Active</th>
-                        <th class="text-center">
-                        </th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach ($users as $user)
+                    @foreach ($inventorys as $inventory)
                         <tr>
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->email }}</td>
-                            <td>{{ $user->description }}</td>
-                            <td>{{ $user->created_at }}</td>
-                            <td>{{ $user->updated_at }}</td>
-                            <td class="text-center">
-                                @if($user->active==1) <i class="fas fa-check text-success"></i>
-                                @else <i class="fas fa-times text-danger"></i>
-                                @endif
-                            </td>
-                            <td class="text-center">
-                                <button class="btn btn-secondary js-btn-edit" data-id="{{$user->id}}" data-token="{{ csrf_token() }}"><i class="fas fa-edit"></i></button>
-                            </td>
+                            <td>{{ $inventory->quantity }}</td>
+
+                            <td>{{ $inventory->created_at }}</td>
+                            <td>{{ $inventory->updated_at }}</td>
                         </tr>
                     @endforeach
                     </tbody>
                 </table>
-            {{ $users->links() }}
+
+{{--            {{ $inventorys->links() }}--}}
             <!-- End of Content page -->
-
-            </div>
-        </div>
-    </div>
-    <!-- The Modal -->
-    <!-- Modal Edit-->
-    <div class="modal fade" id="modalEdit">
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h4 class="modal-title">Chỉnh sửa người dùng</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-
-                <form action="" name="frmEdit" method="post" enctype="multipart/form-data">
+                <form action="{{route('inventory.store')}}" name="frmEdit" method="post" enctype="multipart/form-data">
                     <!-- Modal body -->
                     <div class="modal-body">
                         @csrf
-                        @method('PUT')
                         <div class="form-group">
-                            <label for="name">Tên người dùng:</label>
-                            <input type="text" class="form-control" id="name" name="name" readonly placeholder="" >
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email:</label>
-                            <input type="text" class="form-control" id="email" name="email" readonly placeholder="" >
+                            <label for="name">Số lượng còn:</label>
+                            <input type="text" class="form-control" id="name" name="name" readonly placeholder="" value="{{$product->quatity}}">
                         </div>
                         <div class="form-group">
-                            <label for="gr_id">Quyền:</label>
-                            <select name="gr_id" id="gr_id" class="custom-select mb-3 js-gr_id-id"></select>
+                            <label for="date">Ngày nhập:</label>
+                            <input type="date" class="form-control" id="date" name="date" required placeholder="" >
                         </div>
-                        <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="switch" name="active">
-                            <label class="custom-control-label" for="switch">Khóa / Mở khóa tài khoản:</label>
+                        <div class="form-group">
+                            <label for="name">Số lượng nhập:</label>
+                            <input type="text" class="form-control" id="quantity" name="quantity" required placeholder="" >
                         </div>
+                        <input type="hidden" value="{{$product->id}}" name="pro_id">
                     </div>
 
                     <!-- Modal footer -->
@@ -100,7 +65,6 @@
             </div>
         </div>
     </div>
-
 @endsection
 @section('body.js')
     <script>
